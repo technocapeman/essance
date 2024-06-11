@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 
 export const ApplicationCard = ({ name, major, acceptedSchools = [], imageUrl }) => {
     return (
@@ -16,9 +17,11 @@ export const ApplicationCard = ({ name, major, acceptedSchools = [], imageUrl })
                     <p className="bg-black bg-opacity-50 px-2 py-1 rounded">Application</p>
                     <h2 className="text-xl font-bold">{name}</h2>
                 </div>
+                <Link href='applicant'>
                 <button className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white text-black font-bold py-2 px-4 rounded shadow-md">
                     Read
                 </button>
+                </Link>
             </div>
             <div className="px-6 py-4">
                 <p className="text-lg font-semibold text-black">Major: {major}</p>
