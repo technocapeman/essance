@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link";
 
 export const EssayCard = ({ essayPrompt, essayContent }) => {
     return (
@@ -7,9 +8,17 @@ export const EssayCard = ({ essayPrompt, essayContent }) => {
             <p className="text-gray-600 text-sm leading-relaxed">
                 {essayContent.substring(0, 255)}
             </p>
-            <a href="#" className="block mt-2 text-black font-bold">
-                Read
-            </a>
+            <Link href={{
+                pathname: "/essay",
+                query: {
+                    prompt: essayPrompt,
+                    content: essayContent
+                }
+            }}>
+                <p className="block mt-2 text-black font-bold">
+                    Read
+                </p>
+            </Link>
         </div>
     );
 };

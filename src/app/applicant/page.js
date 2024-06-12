@@ -4,12 +4,15 @@ import { TopBar } from "../components/top-bar";
 import Image from "next/image";
 import { EssayCard } from './components/essay-card';
 import {StatsPopup} from "./components/stats-popup";
+import { useSearchParams } from 'next/navigation';
 
-export default function Page() {
+export default function Applicant() {
     const [isStatsOpen, setIsStatsOpen] = useState(false);
 
     const openStats = () => setIsStatsOpen(true);
     const closeStats = () => setIsStatsOpen(false);
+
+    const searchParams = useSearchParams();
 
     return (
         <div className="bg-white min-h-screen relative">
@@ -17,7 +20,7 @@ export default function Page() {
             <div className="relative w-full">
                 <div className="w-full h-72 relative overflow-hidden">
                     <Image
-                        src="/images/MITHomePage.jpg"
+                        src={searchParams.get("imageUrl")}
                         layout="fill"
                         objectFit="cover"
                         alt="Home Page Image"
@@ -30,12 +33,12 @@ export default function Page() {
                     </button>
                 </div>
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center px-4">
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold">Read Ralph Ojo's Essays</h1>
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold">Read {searchParams.get("name")}'s Essays</h1>
                     <p className="mt-4 text-2xl sm:text-3xl md:text-4xl">
-                        Accepted: MIT, Stanford, Yale
+                        Accepted: {searchParams.get("acceptedSchools")}
                     </p>
                     <p className="mt-4 text-2xl sm:text-3xl md:text-4xl">
-                        Major: Computer Science
+                        Major: {searchParams.get("major")}
                     </p>
                 </div>
             </div>
