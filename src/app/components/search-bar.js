@@ -1,17 +1,17 @@
 'use client'
 import React from 'react';
 import Select from 'react-select';
-import { FaSearch } from 'react-icons/fa';
+import {FaSearch} from 'react-icons/fa';
 
 const optionsCollege = [
-    { value: 'college1', label: 'College 1' },
-    { value: 'college2', label: 'College 2' },
+    {value: 'college1', label: 'College 1'},
+    {value: 'college2', label: 'College 2'},
     // Add more options here
 ];
 
 const optionsMajor = [
-    { value: 'major1', label: 'Major 1' },
-    { value: 'major2', label: 'Major 2' },
+    {value: 'major1', label: 'Major 1'},
+    {value: 'major2', label: 'Major 2'},
     // Add more options here
 ];
 
@@ -62,7 +62,8 @@ const customStyles = {
 
 export const SearchBar = () => {
     return (
-        <div className="flex flex-col sm:flex-row items-center justify-between bg-white p-4 sm:p-6 rounded-3xl shadow-xl w-full max-w-5xl mx-auto space-y-4 sm:space-y-0">
+        <div
+            className="flex flex-col sm:flex-row items-center justify-between bg-white p-4 sm:p-6 rounded-3xl shadow-xl w-full max-w-5xl mx-auto space-y-4 sm:space-y-0">
             <div className="flex-1 relative pr-0 sm:pr-6 flex flex-col justify-center w-full sm:w-auto">
                 <label className="block text-black text-lg font-bold mb-2 text-left ml-4" htmlFor="college">
                     College:
@@ -96,12 +97,13 @@ export const SearchBar = () => {
                     type="text"
                     placeholder="Name of Student Profile"
                     className="w-full p-3 rounded-lg text-md border-none ml-3"
-                    style={{ border: 'none', boxShadow: 'none', textAlign: 'left', color: 'black' }}
+                    style={{border: 'none', boxShadow: 'none', textAlign: 'left', color: 'black'}}
                 />
             </div>
             <div className="flex items-center justify-center ml-0 sm:ml-6">
-                <button className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-orange-300 flex items-center justify-center focus:outline-none">
-                    <FaSearch className="text-white text-xl" />
+                <button
+                    className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-orange-300 flex items-center justify-center focus:outline-none">
+                    <FaSearch className="text-white text-xl"/>
                 </button>
             </div>
         </div>

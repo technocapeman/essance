@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const StatsPopup = ({ isOpen, onClose }) => {
+export const StatsPopup = ({isOpen, onClose}) => {
     if (!isOpen) return null;
 
     return (
