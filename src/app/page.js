@@ -1,12 +1,13 @@
 import Image from 'next/image';
-import { TopBar } from '@/app/components/top-bar';
-import { SearchBar } from '@/app/components/search-bar';
-import { ApplicationCard } from '@/app/components/application-card';
+import {TopBar} from '@/app/components/top-bar';
+import {SearchBar} from '@/app/components/search-bar';
+import {ApplicationCard} from '@/app/components/application-card';
+import {HOC} from "@/app/hoc/hoc";
 
-export default function Home() {
+function Home() {
     return (
         <div className="bg-white min-h-screen relative">
-            <TopBar />
+            <TopBar/>
             <div className="relative w-full h-screen">
                 <Image
                     src="/images/MITHomePage.jpg"
@@ -20,7 +21,7 @@ export default function Home() {
                         Browse our database of 3000+ verified essays and resumes
                     </p>
                     <div className="mt-8 w-full max-w-5xl">
-                        <SearchBar />
+                        <SearchBar/>
                     </div>
                 </div>
             </div>
@@ -42,3 +43,5 @@ export default function Home() {
         </div>
     );
 }
+
+export default HOC(Home);
