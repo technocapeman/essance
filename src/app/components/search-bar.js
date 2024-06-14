@@ -95,7 +95,7 @@ export const SearchBar = () => {
                     id="name"
                     type="text"
                     placeholder="Name of Student Profile"
-                    className="w-full p-3 rounded-lg text-lg border-none"
+                    className="w-full p-3 rounded-lg text-md border-none ml-3"
                     style={{ border: 'none', boxShadow: 'none', textAlign: 'left', color: 'black' }}
                 />
             </div>

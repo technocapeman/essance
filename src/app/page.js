@@ -1,13 +1,13 @@
 import Image from 'next/image';
-import {TopBar} from '@/app/components/top-bar';
-import {SearchBar} from '@/app/components/search-bar';
-import {ApplicationCard} from '@/app/components/application-card';
-import {HOC} from "@/app/hoc/hoc";
+import { TopBar } from '@/app/components/top-bar';
+import { SearchBar } from '@/app/components/search-bar';
+import { ApplicationCard } from '@/app/components/application-card';
+import { HOC } from "@/app/infrastructure/hoc/hoc";
 
 function Home() {
     return (
         <div className="bg-white min-h-screen relative">
-            <TopBar/>
+            <TopBar />
             <div className="relative w-full h-screen">
                 <Image
                     src="/images/MITHomePage.jpg"
@@ -21,13 +21,13 @@ function Home() {
                         Browse our database of 3000+ verified essays and resumes
                     </p>
                     <div className="mt-8 w-full max-w-5xl">
-                        <SearchBar/>
+                        <SearchBar />
                     </div>
                 </div>
             </div>
             <div className="p-6 sm:p-8 md:p-12 lg:pl-20">
                 <div className="text-3xl sm:text-4xl md:text-5xl text-black font-bold mb-8">Top Results For You</div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"> {/* Adjusted grid columns and gap */}
                     {[...Array(10)].map((_, index) => (
                         <div key={index} className="w-full">
                             <ApplicationCard
