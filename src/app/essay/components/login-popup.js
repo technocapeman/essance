@@ -1,4 +1,3 @@
-// components/login-popup.js
 import React from 'react';
 
 export const LoginPopup = () => {

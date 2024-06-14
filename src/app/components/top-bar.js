@@ -1,29 +1,35 @@
 import * as React from "react";
+import Link from "next/link";
 
 export const TopBar = () => {
     return (
         <div className="w-full bg-white">
             <div className="flex items-center justify-between w-full px-5 py-5">
                 <a href="/">
-                <div className="flex items-center gap-5">
-                    <div className="flex flex-col justify-center items-center px-4 rounded-full bg-orange-200 bg-opacity-40 h-[50px] w-[50px] sm:h-[70px] sm:w-[70px] md:h-[89px] md:w-[89px]">
-                        <div className="shrink-0 rounded-full bg-orange-200 bg-opacity-40 h-[35px] w-[35px] sm:h-[48px] sm:w-[48px] md:h-[61px] md:w-[61px]" />
+                    <div className="flex items-center gap-5">
+                        <div
+                            className="flex flex-col justify-center items-center px-4 rounded-full bg-orange-200 bg-opacity-40 h-[50px] w-[50px] sm:h-[70px] sm:w-[70px] md:h-[89px] md:w-[89px]">
+                            <div
+                                className="shrink-0 rounded-full bg-orange-200 bg-opacity-40 h-[35px] w-[35px] sm:h-[48px] sm:w-[48px] md:h-[61px] md:w-[61px]"/>
+                        </div>
+                        <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-200">
+                            Essence
+                        </div>
                     </div>
-                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-200">
-                        Essence
-                    </div>
-                </div>
                 </a>
                 <div className="flex items-center gap-5">
-                    <a href="#">
-                    <div className="text-lg sm:text-2xl md:text-3xl text-black">Pricing</div>
-                        </a>
-                    <button className="shrink-0 border-gray-200 border-solid border-[3px] h-[40px] sm:h-[60px] md:h-[80px] lg:h-[105px] rounded-[25px] sm:rounded-[35px] md:rounded-[50px] lg:rounded-[80px] w-[120px] sm:w-[180px] md:w-[240px] lg:w-[336px]">
-                        <div className="text-base sm:text-lg md:text-xl lg:text-3xl font-bold text-black">Sign Up or Login</div>
+                    <Link href="pricing">
+                        <div className="text-lg sm:text-2xl md:text-3xl text-black">Pricing</div>
+                    </Link>
+                    <button
+                        className="shrink-0 border-gray-200 border-solid border-[3px] h-[40px] sm:h-[60px] md:h-[80px] lg:h-[105px] rounded-[25px] sm:rounded-[35px] md:rounded-[50px] lg:rounded-[80px] w-[120px] sm:w-[180px] md:w-[240px] lg:w-[336px]">
+                        <div className="text-base sm:text-lg md:text-xl lg:text-3xl font-bold text-black">Sign Up or
+                            Login
+                        </div>
                     </button>
                 </div>
             </div>
-            <div className="w-full border-t-2 border-stone-200 bg-stone-200 min-h-[2px]" />
+            <div className="w-full border-t-2 border-stone-200 bg-stone-200 min-h-[2px]"/>
         </div>
     );
 }
