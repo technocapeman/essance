@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import {TopBar} from "@/app/components/top-bar";
+import {HOC} from "@/app/infrastructure/hoc/hoc";
 
 const Pricing = () => {
     return (
@@ -43,4 +44,4 @@ const Pricing = () => {
     );
 };
 
-export default Pricing;
+export default HOC(Pricing);
