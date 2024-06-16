@@ -1,5 +1,4 @@
-// essay/page.js
-"use client";
+"use client"
 import React, {useContext, useEffect, useState} from 'react';
 import {TopBar} from '../components/top-bar';
 import {useSearchParams} from 'next/navigation';
@@ -20,15 +19,14 @@ function Essay() {
         if (!isAuth) {
             setShowAuthPopup(true);
         } else {
+            setShowAuthPopup(false);
             if (!isPremium && profileViewUsed) {
                 setShowPaywall(true);
+            } else {
+                setShowPaywall(false);
             }
         }
     }, [isAuth, isPremium, profileViewUsed]);
-
-    console.log(isAuth);
-    console.log(isPremium);
-    console.log(profileViewUsed);
 
     return (
         <div className="relative">
