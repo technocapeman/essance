@@ -62,6 +62,7 @@ function Applicant() {
                     </div>
                 </div>
             </div>
+            {/* TODO: Dynamically retrieve data from Cloud Firestore and pass data to applicant pages */}
             <div className="p-6 sm:p-8 md:p-12 lg:pl-20">
                 <div className="text-3xl sm:text-4xl md:text-5xl text-black font-bold mb-8">MIT</div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pb-20">

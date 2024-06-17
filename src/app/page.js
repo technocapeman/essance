@@ -15,7 +15,7 @@ function Home() {
 
     useEffect(() => {
         // Check to see if this is a redirect back from Checkout
-        const query = new URLSearchParams(window.location.search);  // TODO: Replace query params with webhooks and Firestore for fraud prevention
+        const query = new URLSearchParams(window.location.search);
         if (query.get('success')) {
             console.log('Order placed! You will receive an email confirmation.');
             setIsPremium(true); // Update the isPremium state

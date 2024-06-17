@@ -6,6 +6,7 @@ import {LoadingSpinner} from '../../components/loading-spinner';
 
 export const AuthContext = createContext({});
 export const AuthContextProvider = ({children}) => {
+    // TODO: Store user information in Cloud Firestore
     const [isAuth, setIsAuth] = useState(false);
     const [username, setUsername] = useState("");
     const [userEmail, setUserEmail] = useState("");

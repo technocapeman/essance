@@ -83,7 +83,7 @@ const Pricing = () => {
                     <div className="flex flex-col items-center bg-black text-white rounded-lg p-6 w-full sm:w-80">
                         <h2 className="text-xl font-bold mb-2">Pro</h2>
                         <p className="text-gray-400 mb-4">For College Applicants</p>
-                        <div className="text-2xl font-bold mb-4">$20</div>
+                        <div className="text-2xl font-bold mb-4">$50</div>
                         <div className="text-gray-400 mb-4">For six months</div>
                         <button
                             className="bg-white text-black py-2 px-4 rounded-lg mb-4 hover:bg-gray-100"

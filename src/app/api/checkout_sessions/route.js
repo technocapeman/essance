@@ -19,7 +19,7 @@ export async function POST(req) {
                 },
             ],
             mode: 'payment',
-            success_url: `${origin}/?success=true`,
+            success_url: `${origin}/?success=true`,  // TODO: Replace query params with webhooks and Firestore for fraud prevention
             cancel_url: `${origin}/?canceled=true`,
             automatic_tax: { enabled: true },
         });
