@@ -23,7 +23,8 @@ export async function POST(req) {
             cancel_url: `${origin}/?canceled=true`,
             automatic_tax: { enabled: true },
         });
-        return NextResponse.redirect(session.url, 303);
+
+        return NextResponse.json({ url: session.url }, { status: 200 });
     } catch (err) {
         console.error('Error creating Stripe session:', err);
         return NextResponse.json({ message: err.message }, { status: err.statusCode || 500 });

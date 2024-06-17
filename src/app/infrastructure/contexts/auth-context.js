@@ -32,19 +32,24 @@ export const AuthContextProvider = ({children}) => {
     }, []);
 
     const signInWithGoogle = () => {
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                const userInfo = result.user;
-                setIsAuth(true);
-                setUsername(userInfo.displayName);
-                setUserEmail(userInfo.email);
-                setProfilePicture(userInfo.photoURL);
-            })
-            .catch((error) => {
-                console.log(`${error.code}: ${error.message}`);
-            });
+        return new Promise((resolve, reject) => {
+            const provider = new GoogleAuthProvider();
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    const userInfo = result.user;
+                    setIsAuth(true);
+                    setUsername(userInfo.displayName);
+                    setUserEmail(userInfo.email);
+                    setProfilePicture(userInfo.photoURL);
+                    resolve(userInfo);
+                })
+                .catch((error) => {
+                    console.log(`${error.code}: ${error.message}`);
+                    reject(error);
+                });
+        });
     }
+
 
     const logout = async () => {
         await signOut(auth);
