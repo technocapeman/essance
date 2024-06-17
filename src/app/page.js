@@ -1,13 +1,50 @@
+"use client"
+import { useEffect, useContext, useState } from "react";
 import Image from 'next/image';
-import {TopBar} from '@/app/components/top-bar';
-import {SearchBar} from '@/app/components/search-bar';
-import {ApplicationCard} from '@/app/components/application-card';
-import {HOC} from "@/app/infrastructure/hoc/hoc";
+import { TopBar } from '@/app/components/top-bar';
+import { SearchBar } from '@/app/components/search-bar';
+import { ApplicationCard } from '@/app/components/application-card';
+import { loadStripe } from '@stripe/stripe-js';
+import { UserContext } from "@/app/infrastructure/contexts/user-context";
+
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 function Home() {
+    const { isPremium, setIsPremium } = useContext(UserContext);
+    const [showBanner, setShowBanner] = useState(false);
+    const [bannerMessage, setBannerMessage] = useState("");
+
+    useEffect(() => {
+        // Check to see if this is a redirect back from Checkout
+        const query = new URLSearchParams(window.location.search);  // TODO: Replace query params with a more fraud-preventative solution using Firestore
+        if (query.get('success')) {
+            console.log('Order placed! You will receive an email confirmation.');
+            setIsPremium(true); // Update the isPremium state
+            setBannerMessage("You are now on the Pro Plan");
+            setShowBanner(true); // Show the banner
+        }
+
+        if (query.get('canceled')) {
+            console.log('Order canceled -- continue to shop around and checkout when you’re ready.');
+            setBannerMessage("Payment failed. Please try again.");
+            setShowBanner(true); // Show the banner
+        }
+    }, [setIsPremium]);
+
     return (
         <div className="bg-white min-h-screen relative">
-            <TopBar/>
+            <TopBar />
+            {showBanner && (
+                <div className="w-full bg-orange-200 text-black text-center py-4 z-50">
+                    <span class="font-bold">{bannerMessage}</span>
+                    <button
+                        className="ml-4 bg-orange-400 px-2 py-1 rounded"
+                        onClick={() => setShowBanner(false)}
+                    >
+                        Dismiss
+                    </button>
+                </div>
+            )}
             <div className="relative w-full h-screen">
                 <Image
                     src="/images/MITHomePage.jpg"
@@ -21,14 +58,14 @@ function Home() {
                         Browse our database of 3000+ verified essays and resumes
                     </p>
                     <div className="mt-8 w-full max-w-5xl">
-                        <SearchBar/>
+                        <SearchBar />
                     </div>
                 </div>
             </div>
             <div className="p-6 sm:p-8 md:p-12 lg:pl-20">
                 <div className="text-3xl sm:text-4xl md:text-5xl text-black font-bold mb-8">Top Results For You</div>
                 <div
-                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"> {/* Adjusted grid columns and gap */}
+                    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                     {[...Array(10)].map((_, index) => (
                         <div key={index} className="w-full">
                             <ApplicationCard
@@ -46,4 +83,4 @@ function Home() {
     );
 }
 
-export default HOC(Home);
+export default Home;

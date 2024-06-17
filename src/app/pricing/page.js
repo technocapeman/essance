@@ -1,7 +1,5 @@
 "use client";
-import React from 'react';
 import {TopBar} from "@/app/components/top-bar";
-import {HOC} from "@/app/infrastructure/hoc/hoc";
 
 const Pricing = () => {
     return (
@@ -30,9 +28,11 @@ const Pricing = () => {
                         <p className="text-gray-400 mb-4">For College Applicants</p>
                         <div className="text-2xl font-bold mb-4">$20</div>
                         <div className="text-gray-400 mb-4">For six months</div>
+                        <form action="/api/checkout_sessions" method="POST">
                         <button className="bg-white text-black py-2 px-4 rounded-lg mb-4 hover:bg-gray-100">Get
                             started
                         </button>
+                        </form>
                         <ul className="text-gray-400">
                             <li>• Unlimited access to student profiles for six months</li>
                             <li>• Access to Beta Features</li>
@@ -44,4 +44,4 @@ const Pricing = () => {
     );
 };
 
-export default HOC(Pricing);
+export default Pricing;

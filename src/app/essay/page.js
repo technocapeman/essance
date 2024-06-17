@@ -3,7 +3,6 @@ import React, {useContext, useEffect, useState} from 'react';
 import {TopBar} from '../components/top-bar';
 import {useSearchParams} from 'next/navigation';
 import {AuthContext} from "@/app/infrastructure/contexts/auth-context";
-import {HOC} from "@/app/infrastructure/hoc/hoc";
 import {PaywallPopup} from '@/app/essay/components/paywall-popup';
 import {UserContext} from "@/app/infrastructure/contexts/user-context";
 import {LoginPopup} from "@/app/essay/components/login-popup";
@@ -47,4 +46,4 @@ function Essay() {
     );
 }
 
-export default HOC(Essay);
+export default Essay;

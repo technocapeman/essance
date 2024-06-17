@@ -11,7 +11,7 @@ export const TopBar = () => {
     return (
         <div className="w-full bg-white">
             <div className="flex flex-wrap items-center justify-between w-full px-5 py-3">
-                <a href="/">
+                <Link href="/">
                     <div className="flex items-center gap-3">
                         <div
                             className="flex flex-col justify-center items-center px-2 rounded-full bg-orange-200 bg-opacity-40 h-[40px] w-[40px] sm:h-[50px] sm:w-[50px] md:h-[60px] md:w-[60px]">
@@ -22,7 +22,7 @@ export const TopBar = () => {
                             Essance
                         </div>
                     </div>
-                </a>
+                </Link>
                 <div
                     className="flex items-center gap-8 mt-4 sm:mt-0 flex-wrap justify-center sm:justify-end w-full sm:w-auto">
                     {!isPremium && (

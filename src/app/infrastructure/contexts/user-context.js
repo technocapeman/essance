@@ -8,7 +8,7 @@ export const UserContextProvider = ({children}) => {
     const [profileViewUsed, setProfileViewUsed] = useState(false);
 
     return (
-        <UserContext.Provider value={{isPremium, profileViewUsed, setProfileViewUsed}}>
+        <UserContext.Provider value={{isPremium, setIsPremium, profileViewUsed, setProfileViewUsed}}>
             {children}
         </UserContext.Provider>
     )

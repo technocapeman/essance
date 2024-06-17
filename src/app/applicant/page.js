@@ -5,7 +5,6 @@ import Image from "next/image";
 import {EssayCard} from './components/essay-card';
 import {StatsPopup} from "./components/stats-popup";
 import {useSearchParams} from 'next/navigation';
-import {HOC} from "@/app/infrastructure/hoc/hoc";
 
 function Applicant() {
     const [isStatsOpen, setIsStatsOpen] = useState(false);
@@ -88,4 +87,4 @@ function Applicant() {
     );
 }
 
-export default HOC(Applicant);
+export default Applicant;

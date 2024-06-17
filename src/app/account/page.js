@@ -2,7 +2,6 @@
 import {useContext} from 'react';
 import {UserContext} from "@/app/infrastructure/contexts/user-context";
 import {AuthContext} from "@/app/infrastructure/contexts/auth-context";
-import {HOC} from "@/app/infrastructure/hoc/hoc";
 import {TopBar} from "@/app/components/top-bar";
 
 const ProfilePage = () => {
@@ -63,4 +62,4 @@ const ProfilePage = () => {
     );
 };
 
-export default HOC(ProfilePage);
+export default ProfilePage;
