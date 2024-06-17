@@ -4,13 +4,12 @@ import Image from 'next/image';
 import { TopBar } from '@/app/components/top-bar';
 import { SearchBar } from '@/app/components/search-bar';
 import { ApplicationCard } from '@/app/components/application-card';
-import { loadStripe } from '@stripe/stripe-js';
 import { UserContext } from "@/app/infrastructure/contexts/user-context";
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+import {AuthContext} from "@/app/infrastructure/contexts/auth-context";
 
 function Home() {
-    const { isPremium, setIsPremium } = useContext(UserContext);
+    const { isAuth } = useContext(AuthContext);
+    const { setIsPremium, favoriteProfiles } = useContext(UserContext);
     const [showBanner, setShowBanner] = useState(false);
     const [bannerMessage, setBannerMessage] = useState("");
 
@@ -63,6 +62,9 @@ function Home() {
                 </div>
             </div>
             <div className="p-6 sm:p-8 md:p-12 lg:pl-20">
+                {(isAuth && favoriteProfiles.length !== 0) && (
+                    <div className="text-3xl sm:text-4xl md:text-5xl text-black font-bold mb-8">Your Favorite Profiles</div>
+                )}
                 <div className="text-3xl sm:text-4xl md:text-5xl text-black font-bold mb-8">Top Results For You</div>
                 <div
                     className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
