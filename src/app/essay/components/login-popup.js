@@ -1,24 +1,26 @@
-import React, {useContext} from 'react';
-import {AuthContext} from "@/app/infrastructure/contexts/auth-context";
+import React, {useContext} from 'react'; // Importing React and useContext hook from React
+import {AuthContext} from "@/app/infrastructure/contexts/auth-context"; // Importing AuthContext for authentication-related data
 
+// Functional component LoginPopup
 export const LoginPopup = () => {
+    // Extracting signInWithGoogle function from AuthContext
     const {signInWithGoogle} = useContext(AuthContext);
 
     return (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
-            <div className="bg-black bg-opacity-50 absolute inset-0"></div>
-            <div className="relative bg-white rounded-lg overflow-hidden z-10 shadow-lg w-96">
-                <img src="/images/MITHomePage.jpg" alt="Popup Background" className="w-full h-48 object-cover"/>
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-                    <h2 className="text-2xl font-bold mb-2">Create an Account</h2>
-                    <p className="text-center mb-4">Sign up now to view one free profile!</p>
+        <div className="fixed inset-0 flex items-center justify-center z-50"> {/* Container for the popup, fixed position covering the entire viewport */}
+            <div className="bg-black bg-opacity-50 absolute inset-0"></div> {/* Semi-transparent black background */}
+            <div className="relative bg-white rounded-lg overflow-hidden z-10 shadow-lg w-96"> {/* Popup container with white background and rounded corners */}
+                <img src="/images/MITHomePage.jpg" alt="Popup Background" className="w-full h-48 object-cover"/> {/* Background image */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4"> {/* Container for the popup content */}
+                    <h2 className="text-2xl font-bold mb-2">Create an Account</h2> {/* Title */}
+                    <p className="text-center mb-4">Sign up now to view one free profile!</p> {/* Description */}
                     <button
-                        className="flex items-center gap-2 bg-white border border-gray-400 text-gray-800 py-2 px-4 rounded-lg shadow transition duration-200 hover:shadow-md hover:bg-gray-50"
-                        onClick={signInWithGoogle}
+                        className="flex items-center gap-2 bg-white border border-gray-400 text-gray-800 py-2 px-4 rounded-lg shadow transition duration-200 hover:shadow-md hover:bg-gray-50" {/* Sign-in button */}
+                        onClick={signInWithGoogle} // Function to sign in with Google
                     >
-                        <div className="h-5 w-5 mr-2">
+                        <div className="h-5 w-5 mr-2"> {/* Container for the Google icon */}
                             <svg className="w-full h-full" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                                 viewBox="0 0 48 48" style={{display: 'block'}}>
+                                 viewBox="0 0 48 48" style={{display: 'block'}}> {/* Google icon */}
                                 <path fill="#EA4335"
                                       d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
                                 <path fill="#4285F4"
@@ -30,7 +32,7 @@ export const LoginPopup = () => {
                                 <path fill="none" d="M0 0h48v48H0z"></path>
                             </svg>
                         </div>
-                        <span>Sign up with Google</span>
+                        <span>Sign up with Google</span> {/* Button text */}
                     </button>
                 </div>
             </div>
