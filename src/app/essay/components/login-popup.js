@@ -15,7 +15,7 @@ export const LoginPopup = () => {
                     <h2 className="text-2xl font-bold mb-2">Create an Account</h2> {/* Title */}
                     <p className="text-center mb-4">Sign up now to view one free profile!</p> {/* Description */}
                     <button
-                        className="flex items-center gap-2 bg-white border border-gray-400 text-gray-800 py-2 px-4 rounded-lg shadow transition duration-200 hover:shadow-md hover:bg-gray-50" {/* Sign-in button */}
+                        className="flex items-center gap-2 bg-white border border-gray-400 text-gray-800 py-2 px-4 rounded-lg shadow transition duration-200 hover:shadow-md hover:bg-gray-50" // Sign-in button
                         onClick={signInWithGoogle} // Function to sign in with Google
                     >
                         <div className="h-5 w-5 mr-2"> {/* Container for the Google icon */}
